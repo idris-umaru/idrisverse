@@ -47,6 +47,3 @@ The portfolio uses native Svelte transitions, CSS keyframes, and the Web Animati
 
 This version simulates email sending to avoid exposing secrets in the client. In production, connect the contact form to a SvelteKit server action, transactional email provider, or scheduling integration.
 
-## Deployment
-
-Deploy to Vercel, Netlify, Cloudflare Pages, or any SvelteKit-compatible host. Set `PUBLIC_SITE_URL` and `PUBLIC_CONTACT_EMAIL` from `.env.example` as needed.
