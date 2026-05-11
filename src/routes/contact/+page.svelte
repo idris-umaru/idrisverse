@@ -6,7 +6,7 @@
   let email = '';
   let message = '';
   let status = '';
-  let errors = {};
+  let errors = { name: '', email: '', message: '' };
 
   function submit() {
     const safeName = sanitizeInput(name);
