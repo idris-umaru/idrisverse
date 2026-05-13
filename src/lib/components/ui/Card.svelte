@@ -2,19 +2,6 @@
   export let elevated = false;
 </script>
 
-<article class:elevated class="card">
+<article class="rounded-lg border border-line bg-panel/85 shadow-forge {elevated ? 'backdrop-blur-2xl' : ''}">
   <slot />
 </article>
-
-<style>
-  .card {
-    background: color-mix(in srgb, var(--panel) 88%, transparent);
-    border: 1px solid var(--line);
-    border-radius: 8px;
-    box-shadow: var(--shadow);
-  }
-
-  .elevated {
-    backdrop-filter: blur(18px);
-  }
-</style>

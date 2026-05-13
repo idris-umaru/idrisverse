@@ -19,7 +19,7 @@
   }
 </script>
 
-<div class="progress" style:transform={`scaleX(${$scrollProgress})`} aria-hidden="true"></div>
+<div class="fixed left-0 right-0 top-0 z-[90] h-[3px] origin-left bg-glow" style:transform={`scaleX(${$scrollProgress})`} aria-hidden="true"></div>
 <Navbar />
 <CursorEffect />
 <main id="main">

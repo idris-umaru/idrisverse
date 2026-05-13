@@ -7,7 +7,7 @@
 </script>
 
 <svelte:head>
-  <title>NeonForge | Svelte Developer Portfolio</title>
+  <title>Idris Umaru | Svelte Developer Portfolio</title>
 </svelte:head>
 
 <Hero />
@@ -15,8 +15,8 @@
 <div use:reveal>
   <Section
     eyebrow="Selected work"
-    title="Interfaces with velocity and nerve."
-    lead="Each project is designed to show production architecture, motion restraint, and the kind of polish that survives real users."
+    title="Pinned projects with product energy."
+    lead="These projects come from Idris Umaru's public GitHub profile and are presented as a polished, interactive product showcase."
   >
     <ProjectsGrid />
   </Section>

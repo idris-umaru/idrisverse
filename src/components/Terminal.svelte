@@ -4,14 +4,14 @@
 
   let input = '';
   let lines = [
-    { type: 'system', text: 'NeonForge terminal online. Try help, skills, projects, open signaldeck, theme.' }
+    { type: 'system', text: 'Idris portfolio terminal online. Try help, skills, projects, open ecommerce-app, theme.' }
   ];
 
   const commands = {
     help: 'Commands: skills, projects, open <project-slug>, contact, clear, theme',
     skills: 'SvelteKit, accessibility, performance budgets, design systems, motion engineering.',
     projects: projects.map((project) => `${project.slug}: ${project.title}`).join(' | '),
-    contact: 'Open /contact or email hello@alexcarter.dev.'
+    contact: 'Open /contact or reach Idris through GitHub, LinkedIn, or X.'
   };
 
   async function submit() {
@@ -46,15 +46,15 @@
   }
 </script>
 
-<section class="terminal" aria-label="Interactive developer terminal">
-  <div class="chrome" aria-hidden="true">
-    <span></span><span></span><span></span>
+<section class="mx-auto max-w-5xl overflow-hidden rounded-lg border border-glow/35 bg-[#081018] font-mono text-[#dffcff] shadow-forge" aria-label="Interactive developer terminal">
+  <div class="flex gap-2 bg-[#101d28] p-4" aria-hidden="true">
+    <span class="h-3 w-3 rounded-full bg-[#ff5c8a]"></span><span class="h-3 w-3 rounded-full bg-[#ffd166]"></span><span class="h-3 w-3 rounded-full bg-[#8cff7a]"></span>
   </div>
-  <div class="output" aria-live="polite">
+  <div class="min-h-[280px] p-4" aria-live="polite">
     {#each lines as line}
-      <p class={line.type}>
+      <p class="my-1 leading-7 {line.type === 'input' ? 'text-[#ffd166]' : line.type === 'error' ? 'text-[#ff8fab]' : ''}">
         {#if line.type === 'link'}
-          <a href={line.text.split(': ')[1]}>{line.text}</a>
+          <a class="text-[#8cff7a]" href={line.text.split(': ')[1]}>{line.text}</a>
         {:else}
           {line.text}
         {/if}
@@ -62,110 +62,14 @@
     {/each}
   </div>
   <form
+    class="grid grid-cols-[1fr_auto] gap-3 border-t border-white/10 p-4 max-sm:grid-cols-1"
     onsubmit={(event) => {
       event.preventDefault();
       submit();
     }}
   >
-    <label for="terminal-input">Command</label>
-    <input id="terminal-input" bind:value={input} autocomplete="off" placeholder="help" />
-    <button type="submit">Run</button>
+    <label class="sr-only" for="terminal-input">Command</label>
+    <input class="min-h-11 rounded-md border border-white/20 bg-white/5 px-3 text-white" id="terminal-input" bind:value={input} autocomplete="off" placeholder="help" />
+    <button class="min-h-11 cursor-pointer rounded-md border-0 bg-glow px-4 font-extrabold text-slate-950" type="submit">Run</button>
   </form>
 </section>
-
-<style>
-  .terminal {
-    background: #081018;
-    border: 1px solid color-mix(in srgb, var(--accent) 34%, transparent);
-    border-radius: 8px;
-    box-shadow: var(--shadow);
-    color: #dffcff;
-    font-family: var(--mono);
-    margin: 0 auto;
-    max-width: 980px;
-    overflow: hidden;
-  }
-
-  .chrome {
-    background: #101d28;
-    display: flex;
-    gap: 0.5rem;
-    padding: 0.85rem;
-  }
-
-  .chrome span {
-    border-radius: 50%;
-    height: 0.75rem;
-    width: 0.75rem;
-  }
-
-  .chrome span:nth-child(1) {
-    background: #ff5c8a;
-  }
-
-  .chrome span:nth-child(2) {
-    background: #ffd166;
-  }
-
-  .chrome span:nth-child(3) {
-    background: #8cff7a;
-  }
-
-  .output {
-    min-height: 280px;
-    padding: 1rem;
-  }
-
-  p {
-    line-height: 1.65;
-    margin: 0.3rem 0;
-  }
-
-  .input {
-    color: #ffd166;
-  }
-
-  .error {
-    color: #ff8fab;
-  }
-
-  a {
-    color: #8cff7a;
-  }
-
-  form {
-    border-top: 1px solid rgba(255, 255, 255, 0.12);
-    display: grid;
-    gap: 0.7rem;
-    grid-template-columns: 1fr auto;
-    padding: 1rem;
-  }
-
-  label {
-    position: absolute;
-    transform: translateX(-9999px);
-  }
-
-  input,
-  button {
-    border-radius: 6px;
-    font: inherit;
-    min-height: 2.8rem;
-  }
-
-  input {
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    color: #fff;
-    padding: 0 0.85rem;
-  }
-
-  button {
-    background: var(--accent);
-    border: 0;
-    color: #061014;
-    cursor: pointer;
-    font-weight: 800;
-    padding: 0 1rem;
-  }
-</style>

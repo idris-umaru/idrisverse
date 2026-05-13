@@ -3,112 +3,20 @@
   export let project;
 </script>
 
-<a class="project-card" href={`/projects/${project.slug}`} style={`--project: ${project.color}; --accent-2: ${project.accent}`}>
-  <div class="preview" aria-hidden="true">
-    <span></span>
-    <span></span>
-    <span></span>
+<a class="group grid min-h-[430px] overflow-hidden rounded-lg border border-line bg-panel/85 text-paper no-underline shadow-forge transition duration-300 hover:-translate-y-1.5 hover:border-[color:var(--project)] focus-visible:border-[color:var(--project)]" href={`/projects/${project.slug}`} style={`--project: ${project.color}; --accent-2: ${project.accent}`}>
+  <div class="grid min-h-[190px] place-items-center p-4 [background:radial-gradient(circle_at_20%_20%,var(--project),transparent_28%),radial-gradient(circle_at_80%_70%,var(--accent-2),transparent_26%),linear-gradient(135deg,color-mix(in_srgb,var(--project)_24%,#101720),#0a1018)]" aria-hidden="true">
+    <span class="block h-11 w-3/4 animate-soft-float rounded-lg border border-white/30 bg-white/10 motion-reduce:animate-none"></span>
+    <span class="block h-11 w-1/2 animate-soft-float rounded-lg border border-white/30 bg-white/10 [animation-delay:400ms] motion-reduce:animate-none"></span>
+    <span class="block h-11 w-2/3 animate-soft-float rounded-lg border border-white/30 bg-white/10 [animation-delay:800ms] motion-reduce:animate-none"></span>
   </div>
-  <div class="body">
+  <div class="p-5">
     <Badge>{project.category}</Badge>
-    <h3>{project.title}</h3>
-    <p>{project.description}</p>
-    <div class="tech">
+    <h3 class="mb-3 mt-4 text-[clamp(1.5rem,3vw,2.1rem)] font-black leading-tight">{project.title}</h3>
+    <p class="leading-7 text-mist">{project.description}</p>
+    <div class="mt-5 flex flex-wrap gap-2">
       {#each project.technologies.slice(0, 3) as tech}
-        <span>{tech}</span>
+        <span class="font-mono text-xs font-semibold text-mist">{tech}</span>
       {/each}
     </div>
   </div>
 </a>
-
-<style>
-  .project-card {
-    background: color-mix(in srgb, var(--panel) 88%, transparent);
-    border: 1px solid var(--line);
-    border-radius: 8px;
-    color: var(--text);
-    display: grid;
-    min-height: 430px;
-    overflow: hidden;
-    text-decoration: none;
-    transition:
-      transform 220ms ease,
-      border-color 220ms ease;
-  }
-
-  .project-card:hover,
-  .project-card:focus-visible {
-    border-color: color-mix(in srgb, var(--project) 65%, transparent);
-    transform: translateY(-6px);
-  }
-
-  .preview {
-    background:
-      radial-gradient(circle at 20% 20%, var(--project), transparent 28%),
-      radial-gradient(circle at 80% 70%, var(--accent-2), transparent 26%),
-      linear-gradient(135deg, color-mix(in srgb, var(--project) 24%, #101720), #0a1018);
-    display: grid;
-    min-height: 190px;
-    padding: 1rem;
-    place-items: center;
-  }
-
-  .preview span {
-    animation: float 5s ease-in-out infinite;
-    background: color-mix(in srgb, white 12%, transparent);
-    border: 1px solid color-mix(in srgb, white 30%, transparent);
-    border-radius: 8px;
-    display: block;
-    height: 42px;
-    width: 72%;
-  }
-
-  .preview span:nth-child(2) {
-    animation-delay: 400ms;
-    width: 54%;
-  }
-
-  .preview span:nth-child(3) {
-    animation-delay: 800ms;
-    width: 64%;
-  }
-
-  .body {
-    padding: 1.25rem;
-  }
-
-  h3 {
-    font-size: clamp(1.5rem, 3vw, 2.1rem);
-    margin: 1rem 0 0.6rem;
-  }
-
-  p {
-    color: var(--muted);
-    line-height: 1.65;
-  }
-
-  .tech {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.45rem;
-    margin-top: 1rem;
-  }
-
-  .tech span {
-    color: var(--muted);
-    font-family: var(--mono);
-    font-size: 0.82rem;
-  }
-
-  @keyframes float {
-    50% {
-      transform: translateY(-9px);
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .preview span {
-      animation: none;
-    }
-  }
-</style>

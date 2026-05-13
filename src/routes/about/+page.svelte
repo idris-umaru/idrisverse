@@ -10,73 +10,29 @@
 
 <Section
   eyebrow="About"
-  title="Engineering for feel, speed, and trust."
+  title="A frontend developer building useful, polished web apps."
   lead="This portfolio is structured like a product surface: stateful, accessible, animated with restraint, and designed around meaningful interaction."
 >
-  <div class="about-grid">
-    <section class="panel">
-      <h2>Capabilities</h2>
-      <div class="skills">
+  <div class="mx-auto grid max-w-6xl grid-cols-[0.8fr_1.2fr] gap-4 max-md:grid-cols-1">
+    <section class="rounded-lg border border-line bg-panel/80 p-5 shadow-forge backdrop-blur-xl">
+      <h2 class="mt-0 text-2xl font-black">Capabilities</h2>
+      <div class="flex flex-wrap gap-2">
         {#each skills as skill}
           <Badge>{skill}</Badge>
         {/each}
       </div>
     </section>
-    <section class="panel">
-      <h2>Timeline</h2>
+    <section class="rounded-lg border border-line bg-panel/80 p-5 shadow-forge backdrop-blur-xl">
+      <h2 class="mt-0 text-2xl font-black">Timeline</h2>
       {#each timeline as item}
-        <article class="timeline">
-          <strong>{item.year}</strong>
+        <article class="grid grid-cols-[76px_1fr] gap-4 border-t border-line py-4 first:border-t-0">
+          <strong class="font-mono text-glow">{item.year}</strong>
           <div>
-            <h3>{item.title}</h3>
-            <p>{item.body}</p>
+            <h3 class="m-0 text-lg font-extrabold">{item.title}</h3>
+            <p class="mt-2 leading-7 text-mist">{item.body}</p>
           </div>
         </article>
       {/each}
     </section>
   </div>
 </Section>
-
-<style>
-  .about-grid {
-    display: grid;
-    gap: 1rem;
-    grid-template-columns: 0.8fr 1.2fr;
-    margin: 0 auto;
-    max-width: 1080px;
-  }
-
-  .panel {
-    border: 1px solid var(--line);
-    border-radius: 8px;
-    padding: 1.2rem;
-  }
-
-  .skills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.6rem;
-  }
-
-  .timeline {
-    display: grid;
-    gap: 1rem;
-    grid-template-columns: 76px 1fr;
-    padding: 1rem 0;
-  }
-
-  .timeline + .timeline {
-    border-top: 1px solid var(--line);
-  }
-
-  p {
-    color: var(--muted);
-    line-height: 1.65;
-  }
-
-  @media (max-width: 780px) {
-    .about-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-</style>

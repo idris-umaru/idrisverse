@@ -1,6 +1,6 @@
 # NeonForge
 
-An immersive SvelteKit developer portfolio built for Frontend Wizards Stage 5b. It presents projects, skills, animated storytelling, a terminal-inspired creative feature, theme support, and accessible contact validation.
+An immersive SvelteKit and Tailwind CSS developer portfolio for Idris Umaru, built for Frontend Wizards Stage 5b. It presents pinned GitHub projects, skills, animated storytelling, a terminal-inspired creative feature, theme support, and accessible contact validation.
 
 ## Setup
 
@@ -46,4 +46,3 @@ The portfolio uses native Svelte transitions, CSS keyframes, and the Web Animati
 ## Trade-offs
 
 This version simulates email sending to avoid exposing secrets in the client. In production, connect the contact form to a SvelteKit server action, transactional email provider, or scheduling integration.
-

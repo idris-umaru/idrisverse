@@ -1,13 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   --accent: #38f2d7;
+  --accent-rgb: 56 242 215;
   --bg: #071019;
+  --bg-rgb: 7 16 25;
   --line: rgba(255, 255, 255, 0.13);
+  --line-rgb: 255 255 255;
   --mono: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
   --muted: #a8bbc8;
+  --muted-rgb: 168 187 200;
   --page-pad: clamp(1rem, 4vw, 4.5rem);
   --panel: #101a24;
+  --panel-rgb: 16 26 36;
   --shadow: 0 24px 80px rgba(0, 0, 0, 0.26);
   --text: #eefcff;
+  --text-rgb: 238 252 255;
   color-scheme: dark;
   font-family:
     Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -16,12 +26,18 @@
 
 :root[data-theme='light'] {
   --accent: #0b8f7f;
+  --accent-rgb: 11 143 127;
   --bg: #f7fbfc;
+  --bg-rgb: 247 251 252;
   --line: rgba(6, 16, 20, 0.14);
+  --line-rgb: 6 16 20;
   --muted: #526775;
+  --muted-rgb: 82 103 117;
   --panel: #ffffff;
+  --panel-rgb: 255 255 255;
   --shadow: 0 24px 70px rgba(20, 54, 66, 0.13);
   --text: #071019;
+  --text-rgb: 7 16 25;
   color-scheme: light;
 }
 
@@ -41,6 +57,12 @@ body {
   color: var(--text);
   margin: 0;
   min-width: 320px;
+}
+
+@layer base {
+  body {
+    @apply antialiased;
+  }
 }
 
 body::selection {
@@ -65,33 +87,6 @@ textarea:focus-visible {
 
 main {
   min-height: 80vh;
-}
-
-.progress {
-  background: var(--accent);
-  height: 3px;
-  left: 0;
-  position: fixed;
-  right: 0;
-  top: 0;
-  transform-origin: left;
-  z-index: 90;
-}
-
-.eyebrow {
-  color: var(--accent) !important;
-  font-family: var(--mono);
-  font-size: 0.85rem !important;
-  font-weight: 800;
-  text-transform: uppercase;
-}
-
-.sr-only {
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  position: absolute;
-  width: 1px;
 }
 
 @media (prefers-reduced-motion: reduce) {

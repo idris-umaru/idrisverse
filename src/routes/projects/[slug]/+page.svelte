@@ -10,165 +10,48 @@
   <title>{project.title} | NeonForge</title>
 </svelte:head>
 
-<article class="detail" style={`--project: ${project.color}; --accent-2: ${project.accent}`}>
-  <header class="detail__header">
+<article class="px-[var(--page-pad)] py-16 md:py-24" style={`--project: ${project.color}; --accent-2: ${project.accent}`}>
+  <header class="mx-auto max-w-4xl text-center">
     <Badge>{project.category}</Badge>
-    <h1>{project.title}</h1>
-    <p>{project.description}</p>
-    <div class="actions">
+    <h1 class="my-5 text-[clamp(3.5rem,11vw,8rem)] font-black leading-[0.86] tracking-normal">{project.title}</h1>
+    <p class="text-[clamp(1.05rem,2vw,1.28rem)] leading-8 text-mist">{project.description}</p>
+    <div class="mt-6 flex flex-wrap justify-center gap-3">
       <Button href={project.demo}>Live demo</Button>
       <Button href={project.github} variant="ghost">GitHub repo</Button>
     </div>
   </header>
 
-  <section class="showcase" aria-label={`${project.title} interface preview`}>
-    <div class="screen">
-      <div class="screen__bar"></div>
-      <div class="screen__grid">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
+  <section class="mx-auto my-12 max-w-6xl" aria-label={`${project.title} interface preview`}>
+    <div class="min-h-[clamp(320px,52vw,620px)] overflow-hidden rounded-lg border border-[color:var(--project)]/40 p-4 shadow-forge [background:radial-gradient(circle_at_20%_20%,var(--project),transparent_30%),radial-gradient(circle_at_82%_76%,var(--accent-2),transparent_24%),#071019]">
+      <div class="mb-4 h-11 rounded-md bg-white/10"></div>
+      <div class="grid grid-cols-[1.2fr_0.8fr] gap-4 max-lg:grid-cols-1">
+        <span class="min-h-40 animate-[lift_5s_ease-in-out_infinite] rounded-lg border border-white/20 bg-white/10 motion-reduce:animate-none"></span>
+        <span class="min-h-40 animate-[lift_5s_ease-in-out_infinite] rounded-lg border border-white/20 bg-white/10 [animation-delay:200ms] motion-reduce:animate-none"></span>
+        <span class="col-span-full min-h-40 animate-[lift_5s_ease-in-out_infinite] rounded-lg border border-white/20 bg-white/10 [animation-delay:400ms] motion-reduce:animate-none max-lg:col-span-1"></span>
+        <span class="min-h-40 animate-[lift_5s_ease-in-out_infinite] rounded-lg border border-white/20 bg-white/10 [animation-delay:600ms] motion-reduce:animate-none"></span>
       </div>
     </div>
   </section>
 
-  <section class="detail__body">
-    <div>
-      <h2>Engineering Focus</h2>
-      <p>
+  <section class="mx-auto grid max-w-6xl grid-cols-[1fr_1fr_0.8fr] gap-4 max-lg:grid-cols-1">
+    <div class="rounded-lg border border-line bg-panel/80 p-5 shadow-forge backdrop-blur-xl">
+      <h2 class="mt-0 text-2xl font-black">Engineering Focus</h2>
+      <p class="leading-7 text-mist">
         The build prioritizes resilient state, keyboard-accessible interactions, and GPU-friendly transitions.
         Motion is handled with transform and opacity so the interface stays smooth under pressure.
       </p>
     </div>
-    <div>
-      <h2>Measured Impact</h2>
-      <p>{project.impact}</p>
+    <div class="rounded-lg border border-line bg-panel/80 p-5 shadow-forge backdrop-blur-xl">
+      <h2 class="mt-0 text-2xl font-black">Measured Impact</h2>
+      <p class="leading-7 text-mist">{project.impact}</p>
     </div>
-    <div>
-      <h2>Stack</h2>
-      <ul>
+    <div class="rounded-lg border border-line bg-panel/80 p-5 shadow-forge backdrop-blur-xl">
+      <h2 class="mt-0 text-2xl font-black">Stack</h2>
+      <ul class="m-0 grid gap-2 pl-5 text-mist">
         {#each project.technologies as tech}
-          <li>{tech}</li>
+          <li class="leading-7">{tech}</li>
         {/each}
       </ul>
     </div>
   </section>
 </article>
-
-<style>
-  .detail {
-    padding: clamp(4rem, 8vw, 7rem) var(--page-pad);
-  }
-
-  .detail__header {
-    margin: 0 auto;
-    max-width: 900px;
-    text-align: center;
-  }
-
-  h1 {
-    font-size: clamp(3.5rem, 11vw, 8rem);
-    line-height: 0.86;
-    margin: 1rem 0;
-  }
-
-  .detail__header p {
-    color: var(--muted);
-    font-size: clamp(1.05rem, 2vw, 1.28rem);
-    line-height: 1.7;
-  }
-
-  .actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.8rem;
-    justify-content: center;
-    margin-top: 1.5rem;
-  }
-
-  .showcase {
-    margin: 3rem auto;
-    max-width: 1100px;
-  }
-
-  .screen {
-    background:
-      radial-gradient(circle at 20% 20%, var(--project), transparent 30%),
-      radial-gradient(circle at 82% 76%, var(--accent-2), transparent 24%),
-      #071019;
-    border: 1px solid color-mix(in srgb, var(--project) 44%, transparent);
-    border-radius: 8px;
-    min-height: clamp(320px, 52vw, 620px);
-    overflow: hidden;
-    padding: 1rem;
-  }
-
-  .screen__bar {
-    background: rgba(255, 255, 255, 0.12);
-    border-radius: 6px;
-    height: 44px;
-    margin-bottom: 1rem;
-  }
-
-  .screen__grid {
-    display: grid;
-    gap: 1rem;
-    grid-template-columns: 1.2fr 0.8fr;
-  }
-
-  .screen__grid span {
-    animation: lift 5s ease-in-out infinite;
-    background: rgba(255, 255, 255, 0.12);
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    border-radius: 8px;
-    min-height: 160px;
-  }
-
-  .screen__grid span:nth-child(3) {
-    grid-column: 1 / -1;
-  }
-
-  .detail__body {
-    display: grid;
-    gap: 1rem;
-    grid-template-columns: 1fr 1fr 0.8fr;
-    margin: 0 auto;
-    max-width: 1100px;
-  }
-
-  .detail__body > div {
-    border: 1px solid var(--line);
-    border-radius: 8px;
-    padding: 1.2rem;
-  }
-
-  h2 {
-    margin-top: 0;
-  }
-
-  p,
-  li {
-    color: var(--muted);
-    line-height: 1.65;
-  }
-
-  @keyframes lift {
-    50% {
-      transform: translateY(-8px);
-    }
-  }
-
-  @media (max-width: 860px) {
-    .detail__body,
-    .screen__grid {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .screen__grid span {
-      animation: none;
-    }
-  }
-</style>

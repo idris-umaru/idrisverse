@@ -16,36 +16,8 @@
 </script>
 
 <div
-  class="cursor"
+  class="pointer-events-none fixed -left-[17px] -top-[17px] z-[80] h-[34px] w-[34px] rounded-full border border-glow/70 opacity-0 transition-[opacity,transform] duration-200 motion-reduce:hidden max-md:hidden"
   aria-hidden="true"
   style:transform={`translate3d(${$cursor.x}px, ${$cursor.y}px, 0)`}
-  class:active={$cursor.active}
+  class:opacity-70={$cursor.active}
 ></div>
-
-<style>
-  .cursor {
-    border: 1px solid color-mix(in srgb, var(--accent) 70%, white);
-    border-radius: 999px;
-    height: 34px;
-    left: -17px;
-    opacity: 0;
-    pointer-events: none;
-    position: fixed;
-    top: -17px;
-    transition:
-      opacity 200ms ease,
-      transform 60ms linear;
-    width: 34px;
-    z-index: 80;
-  }
-
-  .cursor.active {
-    opacity: 0.7;
-  }
-
-  @media (pointer: coarse), (prefers-reduced-motion: reduce) {
-    .cursor {
-      display: none;
-    }
-  }
-</style>

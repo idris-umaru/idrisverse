@@ -4,35 +4,11 @@
   export let lead = '';
 </script>
 
-<section class="section">
-  <div class="section__head">
-    {#if eyebrow}<p class="eyebrow">{eyebrow}</p>{/if}
-    {#if title}<h2>{title}</h2>{/if}
-    {#if lead}<p>{lead}</p>{/if}
+<section class="px-[var(--page-pad)] py-16 md:py-24">
+  <div class="mx-auto mb-8 max-w-3xl text-center">
+    {#if eyebrow}<p class="font-mono text-sm font-extrabold uppercase text-glow">{eyebrow}</p>{/if}
+    {#if title}<h2 class="m-0 text-[clamp(2rem,5vw,4.6rem)] font-black leading-none tracking-normal">{title}</h2>{/if}
+    {#if lead}<p class="mx-auto mt-5 max-w-2xl text-base leading-8 text-mist md:text-lg">{lead}</p>{/if}
   </div>
   <slot />
 </section>
-
-<style>
-  .section {
-    padding: clamp(4rem, 8vw, 7rem) var(--page-pad);
-  }
-
-  .section__head {
-    margin: 0 auto 2rem;
-    max-width: 760px;
-    text-align: center;
-  }
-
-  h2 {
-    font-size: clamp(2rem, 5vw, 4.6rem);
-    line-height: 0.98;
-    margin: 0;
-  }
-
-  p {
-    color: var(--muted);
-    font-size: clamp(1rem, 2vw, 1.16rem);
-    line-height: 1.7;
-  }
-</style>
