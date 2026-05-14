@@ -13,7 +13,7 @@
     <p class="max-w-2xl text-[clamp(1rem,2vw,1.25rem)] leading-8 text-mist">{profile.intro}</p>
     <div class="mt-6 flex flex-wrap gap-3">
       <Button href="/projects">Explore projects</Button>
-      <Button href="/resume.pdf" variant="ghost">Download resume</Button>
+      <Button href="/pdf/idris-umaru-frontend-resume.pdf" download="idris-umaru-frontend-resume.pdf" variant="ghost">Download resume</Button>
     </div>
     <div class="mt-6 flex flex-wrap gap-4" aria-label="Social links">
       {#each profile.socials as social}
