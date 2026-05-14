@@ -4,6 +4,7 @@
   export let type = 'button';
   export let ariaLabel = '';
   export let onclick = undefined;
+  export let download = undefined;
 </script>
 
 {#if href}
@@ -15,6 +16,7 @@
         ? 'border-transparent bg-transparent text-paper hover:bg-glow/10'
         : 'border-line bg-panel/80 text-paper hover:border-glow/50'}"
     {href}
+    download={download || undefined}
     aria-label={ariaLabel || undefined}
   >
     <slot />
