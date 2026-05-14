@@ -2,7 +2,7 @@ export const profile = {
   name: 'Idris Umaru',
   title: 'Frontend Developer and Creative Web Engineer',
   intro:
-    'I build polished web experiences with Svelte, React, JavaScript, Tailwind CSS, motion, and careful attention to usability.',
+    'I build polished web experiences with Svelte, React, JavaScript, Tailwind CSS, motion, Next.js and careful attention to usability.',
   email: 'idrisumaru.dev@gmail.com',
   location: 'Nigeria / Remote',
   socials: [
@@ -17,6 +17,7 @@ export const skills = [
   'React',
   'Tailwind CSS',
   'JavaScript',
+  'Next.js',
   'Performance',
   'Accessibility',
   'Responsive UI',
