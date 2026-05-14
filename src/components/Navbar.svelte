@@ -30,8 +30,12 @@
       >
     {/each}
   </div>
-  <button class="min-h-11 min-w-11 cursor-pointer rounded-full border border-line bg-panel/80 px-3 py-2 font-bold text-paper transition hover:border-glow/50" type="button" onclick={() => toggleTheme(currentTheme)}>
-    <span aria-hidden="true">{currentTheme === 'dark' ? 'Sun' : 'Moon'}</span>
-    <span class="sr-only">Toggle theme</span>
+  <button
+    class="min-h-11 min-w-11 cursor-pointer rounded-full border border-line bg-panel/80 px-3 py-2 font-bold text-paper transition hover:border-glow/50"
+    type="button"
+    onclick={() => toggleTheme(currentTheme)}
+  >
+    <span aria-hidden="true">{currentTheme === 'dark' ? 'Light' : 'Dark'}</span>
+    <span class="sr-only">Switch to {currentTheme === 'dark' ? 'light' : 'dark'} theme</span>
   </button>
 </nav>
